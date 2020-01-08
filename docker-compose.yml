@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+    - mysql_dbdata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: senac@123
+      MYSQL_DATABASE: projeto_integrador04
+      MYSQL_USER: projeto04
+      MYSQL_PASSWORD: senac@123
+
+  wordpress:
+    depends_on:
+    - mysql
+    image: santosalves/wordpress_projeto04:latest
+    ports:
+    - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: projeto04
+      WORDPRESS_DB_PASSWORD: senac@123
+      WORDPRESS_DB_NAME: projeto_integrador04
+  loadbalance:
+    depends_on:
+    - wordpress
+    image: santosalves/loadbalance_projeto04:latest
+    ports:
+    - "8000:8000"
+
+volumes:
+  mysql_dbdata:
