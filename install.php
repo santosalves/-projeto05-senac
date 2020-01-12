@@ -32,7 +32,7 @@ if ( false ) {
  */
 
 #Automatizar instalacao
-shell_exec('wp core install --url="wordpress.projeto04.local" --title="Projeto Integrador 04" --admin_user=admin --admin_password=senac@123 --admin_email=teste@gmail.com --allow-root');
+shell_exec('wp core install --url="LOAD-BALANCE-PROD-1542438572.us-east-1.elb.amazonaws.com" --title="Projeto Integrador 05" --admin_user=admin --admin_password=senac@123 --admin_email=teste@gmail.com --allow-root');
 
 define( 'WP_INSTALLING', false);
 
