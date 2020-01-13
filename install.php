@@ -32,7 +32,7 @@ if ( false ) {
  */
 
 #Automatizar instalacao
-shell_exec('wp core install --url="LOAD-BALANCE-PROD-1542438572.us-east-1.elb.amazonaws.com" --title="Projeto Integrador 05" --admin_user=admin --admin_password=senac@123 --admin_email=teste@gmail.com --allow-root');
+shell_exec('wp core install --url="santosalves-labs.tk" --title="SantosAlves-Labs" --admin_user=admin --admin_password=senac@123 --admin_email=teste@gmail.com --allow-root');
 
 define( 'WP_INSTALLING', false);
 
