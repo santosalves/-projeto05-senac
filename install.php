@@ -32,7 +32,7 @@ if ( false ) {
  */
 
 #Automatizar instalacao
-shell_exec('wp core install --url="santosalves-labs.tk" --title="SantosAlves-Labs" --admin_user=admin --admin_password=senac@123 --admin_email=teste@gmail.com --allow-root');
+shell_exec('wp core install --url=santosalves-labs.tk --title="SantosAlves-Labs" --admin_user=admin --admin_password=senac@123 --admin_email=teste@gmail.com --allow-root');
 
 define( 'WP_INSTALLING', false);
 
