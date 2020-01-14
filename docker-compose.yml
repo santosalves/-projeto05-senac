@@ -5,9 +5,10 @@ services:
     ports:
     - "80:80"
     environment:
-      WORDPRESS_DB_HOST: wordpress-db-prod.caqz1l0qgvir.us-east-1.rds.amazonaws.com 
+      WORDPRESS_DB_HOST: db.santosalves-labs.tk.
       WORDPRESS_DB_USER: senac
       WORDPRESS_DB_PASSWORD: senac123
       WORDPRESS_DB_NAME: projeto_integrador05
+
 volumes:
   wordpress_dados:
