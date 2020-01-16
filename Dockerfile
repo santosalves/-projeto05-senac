@@ -26,8 +26,8 @@ ENV APACHE_LOG_DIR="/var/log/apache2"
 ADD https://br.wordpress.org/latest-pt_BR.tar.gz /var/www/html
 WORKDIR /var/www/html
 RUN tar -zxf latest-pt_BR.tar.gz && cp -r wordpress/* /var/www/html
-COPY wp-config.php /var/www/html/
-COPY install.php /var/www/html/wp-admin/
+COPY config/wordpress/wp-config.php /var/www/html/
+COPY config/wordpress/install.php /var/www/html/wp-admin/
 
 VOLUME /var/www/html/
 EXPOSE 80
