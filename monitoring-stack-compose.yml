@@ -10,9 +10,9 @@ services:
     ports:
     - "3000:3000"
 
-# Usar variável abaixo para adicionar mais plugin ao Grafana
-#environment:
-#   GF_INSTALL_PLUGINS: ""
+    # Usar variável abaixo para adicionar mais plugins ao Grafana
+    #environment:
+    #   GF_INSTALL_PLUGINS: ""
 
 volumes:
   prometheus_dados:
