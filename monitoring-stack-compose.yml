@@ -4,6 +4,12 @@ services:
     image: santosalves/prometheus_projeto05
     ports:
     - "9090:9090"
+    
+  grafana:
+    image: santosalves/grafana_projeto05
+    ports:
+    - "3000:300"
 
 volumes:
   prometheus_dados:
+  grafana_dados:
