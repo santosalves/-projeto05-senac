@@ -8,7 +8,11 @@ services:
   grafana:
     image: santosalves/grafana_projeto05
     ports:
-    - "3000:300"
+    - "3000:3000"
+
+# Usar variável abaixo para adicionar mais plugin ao Grafana
+#environment:
+#   GF_INSTALL_PLUGINS: ""
 
 volumes:
   prometheus_dados:
