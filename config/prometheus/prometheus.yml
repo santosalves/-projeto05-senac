@@ -19,11 +19,18 @@ rule_files:
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
+  # metrics_path defaults to '/metrics'
+  # scheme defaults to 'http'.
+  
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
 
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-
+    scrape_interval: 5s
     static_configs:
     - targets: ['localhost:9090']
+    
+  - job_name: 'swarm'
+    
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['node01.santosalves-labs.tk:9100', 'node02.santosalves-labs.tk:9100', 'node03.santosalves-labs.tk:9100']
