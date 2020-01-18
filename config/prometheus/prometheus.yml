@@ -33,4 +33,6 @@ scrape_configs:
     
     scrape_interval: 5s
     static_configs:
-    - targets: ['node01.santosalves-labs.tk:9100', 'node02.santosalves-labs.tk:9100', 'node03.santosalves-labs.tk:9100']
+    - targets: ['node01.internal-santosalves-labs.tk:9100', 
+                'node02.internal-santosalves-labs.tk:9100', 
+                'node03.internal-santosalves-labs.tk:9100']
