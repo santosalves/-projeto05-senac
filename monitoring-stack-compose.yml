@@ -4,16 +4,60 @@ services:
     image: santosalves/prometheus_projeto05
     ports:
     - "9090:9090"
+    volumes:
+    - prometheus_dados:/etc/prometheus
     
   grafana:
     image: santosalves/grafana_projeto05
     ports:
     - "3000:3000"
+    volumes:
+    - grafana_dados:/etc/grafana
 
     # Usar variável abaixo para adicionar mais plugins ao Grafana
     #environment:
     #   GF_INSTALL_PLUGINS: ""
+  
+  mongo:
+    image: mongo:3
+    ports:
+    - "27017:27017"
+    volumes:
+    - mongo_dados:/data/db
+  
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.5
+    ports:
+    - "9200:9200"
+    - "9300:9300"
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=localhost
+      - network.host=0.0.0.0
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+    - elasticsearch_dados:/etc/elasticsearch
+
+  graylog:
+    image: graylog/graylog:3.2
+    depends_on:
+      - mongo
+      - elasticsearch
+    ports:
+    - "9000:9000"
+    - "12201:12201"
+    - "1514:1514" 
+    environment:
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      - GRAYLOG_PASSWORD_SECRET=Senac@123
+      - GRAYLOG_HTTP_EXTERNAL_URI="http://santosalves-labs.tk:9000/"
+      - HTTP_PUBLISH_URI="http://$santosalves-labs.tk/"
+    volumes:
+    - graylog_dados:/etc/graylog
 
 volumes:
   prometheus_dados:
   grafana_dados:
+  graylog_dados:
+  elasticsearch_dados:
+  mongo_dados:
