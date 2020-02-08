@@ -105,5 +105,14 @@ Resources:
       LoadBalancerArn: !Ref ALB
       Port: 9000
       Protocol: HTTP
+  INPUTRSYSLOGTG:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions: 
+        - Type: forward
+          TargetGroupArn: arn:aws:elasticloadbalancing:us-east-1:946553465797:targetgroup/INPUT-RSYSLOG/0992bcd098343cfb
+      LoadBalancerArn: !Ref ALB
+      Port: 12201
+      Protocol: HTTP
 Outputs:
   {}
