@@ -11,6 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libapache2-mod-php7.2 \
     vim \
     curl \
+    rsyslog \
     && apt-get autoclean \
     && rm -rf /var/www/html/* \
     && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
@@ -28,6 +29,7 @@ WORKDIR /var/www/html
 RUN tar -zxf latest-pt_BR.tar.gz && cp -r wordpress/* /var/www/html
 COPY wp-config.php /var/www/html/
 COPY install.php /var/www/html/wp-admin/
+COPY rsyslog/50-default.conf /etc/rsyslog.d/
 
 VOLUME /var/www/html/
 EXPOSE 80
