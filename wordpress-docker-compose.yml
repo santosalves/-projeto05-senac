@@ -9,7 +9,7 @@ services:
       WORDPRESS_DB_USER: senac
       WORDPRESS_DB_PASSWORD: senac123
       WORDPRESS_DB_NAME: projeto_integrador05
-     deploy:
+    deploy:
       mode: replicated
       replicas: 2
       resources:
