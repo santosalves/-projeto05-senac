@@ -11,7 +11,7 @@ services:
       WORDPRESS_DB_NAME: projeto_integrador05
     deploy:
       mode: replicated
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           cpus: '0.50'
@@ -25,7 +25,6 @@ services:
         max_attempts: 3
         window: 120s
     volumes:
-    - wordpress_dados:/var/www/html
+    - /mnt/efs/wordpress_dados/html:/var/www/html
+    
 
-volumes:
-  wordpress_dados:
